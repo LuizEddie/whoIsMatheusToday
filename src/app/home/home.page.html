@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Quem o Matheus é Hoje?
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="scroll">
+  <div class="main-div">
+    <div class="div-card">
+      <ion-card class="card">
+          <ion-img [src]="img" class="img"></ion-img>
+      </ion-card>
+    </div>
+    <div>
+      <ion-button expand="block" (click)="startSearch()" [disabled]="disabled">Verificar</ion-button>
+    </div>
+  </div>
+</ion-content>

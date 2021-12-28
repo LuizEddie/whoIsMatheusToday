@@ -17,7 +17,6 @@ export class HomePage {
 
   constructor(private file: File) {
     this.img = this.folder + this.default;
-    this.startSearch()
    }
 
   startSearch() {
@@ -25,6 +24,7 @@ export class HomePage {
       imgs.forEach(img => {
         this.imgs.push(img.name);
       })
+      this.countImg();
     })
   }
 

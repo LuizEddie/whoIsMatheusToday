@@ -10,12 +10,14 @@ export class HomePage {
   default = "quem_sera.png"
   folder = "../../assets/";
   img = "";
+  name = "";
   music = new Audio("../../assets/music/audio.mp3");
   imgs: Array<any> = [];
   disabled = false;
 
   constructor(private file: File) {
     this.img = this.folder + this.default;
+    this.startSearch()
    }
 
   startSearch() {
@@ -23,8 +25,6 @@ export class HomePage {
       imgs.forEach(img => {
         this.imgs.push(img.name);
       })
-      this.reproduceMusic();
-      this.countImg();
     })
   }
 
@@ -35,19 +35,23 @@ export class HomePage {
   }
 
   countImg(){
-    var count = Math.round(this.music.duration);
+    this.reproduceMusic();
+    this.disabled = true;
+    var duration = Math.round(this.music.duration);
+    var count = duration * 1000;//seconds to ms
     let interval = setInterval(()=>{
-      this.disabled = true;
-      if(count > 4){
-        this.img = this.folder  + "char/"+ this.imgs[this.randomizeImageLenght()];
-        count--;
+      if(count > 4000){
+        let partName = this.imgs[this.randomizeImageLenght()];
+        this.img = this.folder  + "char/"+ partName;
+        this.name = partName.split(".",2)[0];
+        count = count - 10;
       }
-    }, 1000);
+    }, 10);
 
     setTimeout(()=>{
       clearInterval(interval);
       this.disabled = false;
-    }, count * 1000);
+    }, count);
   }
 
   reproduceMusic(){

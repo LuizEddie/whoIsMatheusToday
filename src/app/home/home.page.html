@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title class="ion-text-center">
-      Quem o Matheus é Hoje?
+      Quem o Matheus é Agora?
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,11 +10,14 @@
   <div class="main-div">
     <div class="div-card">
       <ion-card class="card">
+        <ion-card-title class="title">
+          {{name}}
+        </ion-card-title>
           <ion-img [src]="img" class="img"></ion-img>
       </ion-card>
     </div>
     <div>
-      <ion-button expand="block" (click)="startSearch()" [disabled]="disabled">Verificar</ion-button>
+      <ion-button expand="block" (click)="countImg()" [disabled]="disabled">Verificar</ion-button>
     </div>
   </div>
 </ion-content>

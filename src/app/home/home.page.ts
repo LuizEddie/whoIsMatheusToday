@@ -38,7 +38,7 @@ export class HomePage {
     this.reproduceMusic();
     this.disabled = true;
     var duration = Math.round(this.music.duration);
-    var count = duration * 1000;//seconds to ms
+    var count = duration * 1100;//seconds to ms
     let interval = setInterval(()=>{
       if(count > 4000){
         let partName = this.imgs[this.randomizeImageLenght()];
